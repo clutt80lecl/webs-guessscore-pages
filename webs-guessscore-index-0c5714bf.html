@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球竞猜 · 从认识开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f7;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: #2c2f36;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* 卡片系统 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e6ef;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        /* hero 区（无背景图，纯文字卡片） */
+        .hero-card {
+            background: #ffffff;
+            padding: 2.8rem 2.2rem;
+            border-bottom: 1px solid #eaeef4;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: #1e2027;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #4e525e;
+            max-width: 640px;
+            border-left: 3px solid #bbc3d0;
+            padding-left: 1rem;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        .tagline {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #eef1f6;
+            color: #2f3540;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid #d6dce8;
+        }
+
+        /* 正文通用 */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 580;
+            margin-bottom: 1rem;
+            color: #1e2027;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #3b3f4a;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #1f5a8e;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(31, 90, 142, 0.25);
+            transition: border-color 0.15s;
+            font-weight: 490;
+        }
+
+        a:hover {
+            border-bottom-color: #1f5a8e;
+        }
+
+        .inset-quote {
+            background: #f0f3fa;
+            border-left: 4px solid #9aacc4;
+            padding: 1rem 1.5rem;
+            margin: 1.8rem 0 1.6rem;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #303642;
+            font-size: 1.02rem;
+        }
+
+        .inset-quote strong {
+            color: #1e2f44;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feat-item {
+            background: #f8faff;
+            border: 1px solid #e3e8f0;
+            border-radius: 16px;
+            flex: 1 1 180px;
+            padding: 1.1rem 1.2rem;
+            min-width: 140px;
+        }
+
+        .feat-item h3 {
+            font-size: 1.1rem;
+            font-weight: 530;
+            margin-bottom: 0.3rem;
+            color: #1b1f2b;
+        }
+
+        .feat-item p {
+            font-size: 0.94rem;
+            color: #4d5362;
+            margin-bottom: 0;
+        }
+
+        .visit-note {
+            margin-top: 2.2rem;
+            font-size: 1rem;
+            background: #f5f7fc;
+            padding: 1.2rem 1.6rem;
+            border-radius: 16px;
+            border: 1px solid #dde2ed;
+            color: #2b3140;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-q {
+            font-weight: 540;
+            color: #1c202b;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-a {
+            color: #3c4252;
+            padding-left: 0.5rem;
+            border-left: 2px solid #cfd7e6;
+            margin-left: 0.25rem;
+            padding-top: 0.1rem;
+            padding-bottom: 0.2rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, #e4e9f2, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .hero-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+            }
+            .feat-item {
+                min-width: unset;
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 卡片：标题 + 快速定位 -->
+    <div class="card hero-card">
+        <h1 class="hero-title">一眼看明白：<br>足球竞猜是什么、怎么用</h1>
+        <div class="hero-sub">不用复杂介绍，先确认这个网站是不是你要找的工具。</div>
+        <div class="tagline">⚽ 从识别到使用 · 一份温和的指南</div>
+    </div>
+
+    <!-- 正文卡片 1 —— 直接切入“网站用途” -->
+    <div class="card">
+        <h2>网站的核心用途</h2>
+        <p>如果你在找一个围绕<span style="font-weight: 500;">足球竞猜</span>提供信息与判断参考的站点，那么 <a href="https://webs-guessscore.com">足球竞猜</a> 就是那个地方。它并非游戏平台或投注入口，而是一个帮助用户理解赛前数据、队伍趋势以及竞猜逻辑的辅助型网站。</p>
+        <p>很多人第一次打开这类网站时，总会困惑：“这是分析站？预测站？还是社区？” 简而言之，它更接近一个轻量级的数据与观点参考站，不引导具体行为，只呈现与足球竞猜相关的可参考内容。</p>
+        <div class="inset-quote">
+            <strong>一句话概括：</strong> 若你想在参与足球竞猜前获得一些思路、统计或背景信息，这个网站可以作为你的起点之一。
+        </div>
+    </div>
+
+    <!-- 正文卡片 2 —— 特点 + 场景 -->
+    <div class="card">
+        <h2>常见特点与适用场景</h2>
+        <p>基于多数使用者的反馈，我们整理了三个你可能会用到的侧面：</p>
+        <div class="feature-grid">
+            <div class="feat-item">
+                <h3>赛前参考</h3>
+                <p>浏览近期交锋、阵容或状态数据，辅助你对一场比赛的竞猜判断。</p>
+            </div>
+            <div class="feat-item">
+                <h3>思路对比</h3>
+                <p>结合网站提供的观点或统计，与你自己的分析相互印证。</p>
+            </div>
+            <div class="feat-item">
+                <h3>保持了解</h3>
+                <p>即使不参与竞猜，也能通过内容了解当前足球竞猜的关注焦点。</p>
+            </div>
+        </div>
+        <p style="margin-top: 0.6rem;">无论你是刚开始接触足球竞猜，还是已有经验，都可以把网站当作一个信息补充来源。它不替代你的判断，但可以帮你打开更多视角。</p>
+    </div>
+
+    <!-- 正文卡片 3 —— 使用提示 + 引用语气 -->
+    <div class="card">
+        <h2>使用前的一点提示</h2>
+        <p>足球竞猜天然带有不确定性。任何网站给出的数据或观点都只是参考，最终决策永远属于你自己。<a href="https://webs-guessscore.com">足球竞猜</a> 这个站点在设计上更强调“呈现”而非“指导”，这也是它值得被当作工具而非权威的原因。</p>
+        <div class="inset-quote">
+            “好的竞猜习惯，往往始于对信息的审视，而不是盲从。”
+        </div>
+        <p>如果你习惯在参与前先查一查、看一看，那么这个网站正好适合放入你的检查清单。</p>
+
+        <!-- 嵌入一个类似 FAQ 摘要 -->
+        <div class="divider"></div>
+        <div class="faq-mini">
+            <div>
+                <div class="faq-q">❓ 这个网站需要注册或付费吗？</div>
+                <div class="faq-a">目前主要内容和基础功能可直接浏览，无需注册。具体以网站实际页面为准。</div>
+            </div>
+            <div>
+                <div class="faq-q">❓ 数据更新频率如何？</div>
+                <div class="faq-a">通常跟随主流赛事周期更新，休赛期或低关注度比赛可能延迟。</div>
+            </div>
+            <div>
+                <div class="faq-q">❓ 我可以只看看、不参与竞猜吗？</div>
+                <div class="faq-a">当然。很多人把它当作足球数据与观点阅读站，完全没问题。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结尾卡片：访问句 + 自然链接 -->
+    <div class="card" style="padding-bottom: 2rem;">
+        <div class="visit-note">
+            <span style="font-weight: 500;">📍 如果你想自己感受一下</span><br>
+            打开浏览器，输入或搜索 <a href="https://webs-guessscore.com">足球竞猜</a>，即可看到网站的当前内容。没有压力，慢慢浏览就好。
+        </div>
+        <p style="margin-top: 1.4rem; font-size: 0.96rem; color: #555b6a;">
+            本文仅作为介绍与指引，不构成任何建议。足球竞猜请保持理性，量力而行。
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
