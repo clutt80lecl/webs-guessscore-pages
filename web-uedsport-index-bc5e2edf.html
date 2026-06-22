@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ued体育 · 再访与关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f8fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1926 0%, #1a2d3d 100%);
+            color: #f0f4f8;
+            padding: 3.5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #b6ccde;
+            max-width: 640px;
+            margin: 0 auto 1.8rem;
+        }
+
+        .hero .sub a {
+            color: #9ec8ff;
+            text-decoration: none;
+            border-bottom: 1px dotted #5f8bbf;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .hero .sub a:hover {
+            color: #c7e0ff;
+            border-bottom: 1px solid #7bb2f0;
+        }
+
+        /* 顶部导航条 */
+        .topnav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem 3.5rem;
+            padding: 1rem 1.5rem 0.2rem;
+            background: transparent;
+            position: relative;
+            top: 0;
+            z-index: 5;
+        }
+
+        .topnav a {
+            color: #d4e0ed;
+            text-decoration: none;
+            font-weight: 450;
+            font-size: 1.05rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border 0.2s, color 0.15s;
+        }
+
+        .topnav a:hover {
+            color: #f5faff;
+            border-bottom-color: #7db4e6;
+        }
+
+        .topnav .brand {
+            font-weight: 550;
+            color: #f0f8ff;
+            letter-spacing: 0.02em;
+        }
+
+        /* 主内容区 — 浅色 */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2.2rem 1.8rem 3rem;
+        }
+
+        /* 问候/再次访问区域 */
+        .welcome-note {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.4rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        .welcome-note h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #14222e;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-note p {
+            font-size: 1.05rem;
+            color: #2a3a4c;
+            max-width: 780px;
+        }
+
+        .welcome-note .highlight-link {
+            color: #1b6bb0;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b3ceec;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .welcome-note .highlight-link:hover {
+            color: #0a4b82;
+            border-bottom: 1px solid #1b6bb0;
+        }
+
+        /* 三个场景模块 — 卡片风格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.4rem 0 2.6rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem 2rem;
+            box-shadow: 0 6px 18px rgba(18, 35, 55, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #e9edf2;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(12, 30, 52, 0.06);
+            border-color: #d2dce8;
+        }
+
+        .scene-card h3 {
+            font-size: 1.4rem;
+            font-weight: 480;
+            color: #1d3244;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .scene-card p {
+            color: #33485d;
+            font-size: 0.98rem;
+        }
+
+        .scene-card .card-link {
+            display: inline-block;
+            margin-top: 1.1rem;
+            color: #1b6bb0;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px dotted #b0cde8;
+            transition: border 0.15s;
+        }
+
+        .scene-card .card-link:hover {
+            border-bottom: 1px solid #1b6bb0;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2.4rem 2.2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.5rem;
+            font-weight: 440;
+            color: #1d3244;
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item .question {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #1f3549;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-item .question::before {
+            content: "▸";
+            color: #306faa;
+            font-weight: 700;
+            margin-right: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item .answer {
+            color: #3a5168;
+            padding-left: 1.8rem;
+            font-size: 0.96rem;
+        }
+
+        .faq-item .answer a {
+            color: #1b6bb0;
+            text-decoration: none;
+            border-bottom: 1px dotted #9bbce0;
+        }
+
+        .faq-item .answer a:hover {
+            border-bottom: 1px solid #1b6bb0;
+        }
+
+        /* 收藏 / 持续关注提示 */
+        .bookmark-note {
+            background: #eaf1fa;
+            border-radius: 24px;
+            padding: 1.4rem 2rem;
+            margin: 2rem 0 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bookmark-note p {
+            color: #1b3450;
+            font-size: 1rem;
+            margin: 0.3rem 0;
+        }
+
+        .bookmark-note .badge {
+            background: #ffffffd9;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #1b3b5a;
+            border: 1px solid #bdd3ea;
+            white-space: nowrap;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 1.5rem 1.5rem 2rem;
+            color: #647a90;
+            font-size: 0.9rem;
+            border-top: 1px solid #dee5ed;
+            margin-top: 1.2rem;
+        }
+
+        .footer a {
+            color: #306faa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 860px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .topnav {
+                gap: 1rem 2rem;
+            }
+            .scene-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.4rem;
+            }
+            .welcome-note {
+                padding: 1.6rem 1.6rem;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero {
+                padding: 2.8rem 1rem 3.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .topnav {
+                flex-wrap: wrap;
+                gap: 0.8rem 1.5rem;
+                justify-content: center;
+            }
+            .container {
+                padding: 1.2rem 1rem 2rem;
+            }
+            .faq-summary {
+                padding: 1.2rem 1.2rem;
+            }
+            .bookmark-note {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 (深色背景) -->
+    <div class="hero">
+        <div class="topnav">
+            <a href="#" class="brand">ued·再访</a>
+            <a href="#">首页</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#">动态</a>
+        </div>
+        <h1>再次回到熟悉的节奏</h1>
+        <div class="sub">
+            收藏、驻足、慢慢翻阅 —— <a href="https://web-uedsport.com">ued体育</a> 一直在这里
+        </div>
+    </div>
+
+    <!-- 主内容 (浅色区) -->
+    <div class="container">
+
+        <!-- 再次访问 & 收藏 -->
+        <div class="welcome-note">
+            <h2>欢迎回来，不必着急</h2>
+            <p>
+                也许你曾匆匆路过，今天不妨再停留一会儿。<br>
+                如果你喜欢这里，可以随时收藏 <a href="https://web-uedsport.com" class="highlight-link">ued体育</a>，让下一次相遇更自然。
+                页面不会喧闹，资讯清晰、节奏舒适，适合日常浏览与慢慢发现。
+            </p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scene-grid">
+            <div class="scene-card">
+                <h3>📌 收藏·重访</h3>
+                <p>把熟悉的页面放进书签，几天后再次打开，内容已经悄悄更新。不打扰，但总有新鲜感。</p>
+                <a href="#" class="card-link">了解收藏方式 →</a>
+            </div>
+            <div class="scene-card">
+                <h3>🔍 日常·轻浏览</h3>
+                <p>通勤间隙、午休片刻，随手滑过几个模块，没有信息轰炸，只有温和的陪伴感。</p>
+                <a href="#" class="card-link">浏览场景示例 →</a>
+            </div>
+            <div class="scene-card">
+                <h3>📬 持续关注</h3>
+                <p>不依赖推送，偶尔回访就像探访一位安静的老朋友。页面简洁，值得你保持关注。</p>
+                <a href="#" class="card-link">关注动态 →</a>
+            </div>
+        </div>
+
+        <!-- 常见说明 / FAQ 摘要 -->
+        <div class="faq-summary">
+            <h3>一些你可能想了解的</h3>
+            <div class="faq-item">
+                <div class="question">页面会频繁变动吗？</div>
+                <div class="answer">内容按节奏更新，不会突然改版。你可以在 <a href="https://web-uedsport.com">ued体育</a> 找到持续稳定的信息。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">如何保持再次访问的习惯？</div>
+                <div class="answer">将链接添加到浏览器书签，或记在常用标签页里。每次回来都不必从头适应。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">这里适合什么样的读者？</div>
+                <div class="answer">适合喜欢安静浏览、对信息质量有要求、不追求频繁推送的任何人。节奏由你自己决定。</div>
+            </div>
+        </div>
+
+        <!-- 收藏提示条 -->
+        <div class="bookmark-note">
+            <p>⭐ 如果你今天觉得不错，不妨现在收藏 <a href="https://web-uedsport.com" style="color:#1b6bb0; text-decoration: none; border-bottom: 1px dotted #8bb4dc;">ued体育</a>，下次再访更顺手。</p>
+            <span class="badge">已收藏 ✓</span>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>保持温和的节奏 · <a href="https://web-uedsport.com">ued体育</a> · 再次访问，总有不同的发现</p>
+    </div>
+
+</body>
+</html>
